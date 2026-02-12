@@ -3,3 +3,5 @@
 
 export const SITE_TITLE = "Sirius";
 export const SITE_DESCRIPTION = "My blog theme";
+export const SITE_AUTHOR = "Sirius";
+export const SITE_SIGNATURE = "Welcome to my space!";
