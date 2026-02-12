@@ -1,0 +1,67 @@
+---
+import type { Project } from "@objects/types";
+
+interface Props {
+    project: Project;
+}
+
+const { project } = Astro.props;
+const { title, description, techStack, githubUrl, demoUrl } = project;
+
+// Flatten the tech stack for easy mapping, or keep them categorized
+const allTech = [
+    ...(techStack.frontend ?? []),
+    ...(techStack.backend ?? []),
+    ...(techStack.misc ?? []),
+    ...(techStack.devOps ?? []),
+];
+---
+
+<div
+    class="flex flex-col p-6 rounded-lg border border-skin-line bg-skin-card hover:border-skin-accent transition-colors"
+>
+    <h3 class="text-xl font-bold text-skin-accent">{title}</h3>
+    <p class="mt-2 text-sm opacity-80 flex-grow">{description}</p>
+
+    <ul class="flex flex-wrap gap-2 mt-4">
+        {
+            allTech.map((tech) => (
+                <li class="px-2 py-1 text-xs rounded border border-skin-line bg-skin-fill opacity-70">
+                    {tech}
+                </li>
+            ))
+        }
+    </ul>
+
+    <div class="flex gap-4 mt-6 text-sm">
+        {
+            typeof githubUrl === "string" ? (
+                <a href={githubUrl} class="hover:text-skin-accent underline decoration-dashed">
+                    GitHub
+                </a>
+            ) : (
+                <>
+                    <a
+                        href={githubUrl.frontend}
+                        class="hover:text-skin-accent underline decoration-dashed"
+                    >
+                        FE Repo
+                    </a>
+                    <a
+                        href={githubUrl.backend}
+                        class="hover:text-skin-accent underline decoration-dashed"
+                    >
+                        BE Repo
+                    </a>
+                </>
+            )
+        }
+        {
+            demoUrl && (
+                <a href={demoUrl} class="hover:text-skin-accent font-bold">
+                    Demo →
+                </a>
+            )
+        }
+    </div>
+</div>

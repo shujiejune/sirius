@@ -1,0 +1,69 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "@components/Footer.astro";
+import Header from "@components/Header.astro";
+import ProjectCard from "@components/ProjectCard.astro";
+import type { Project } from "@objects/types";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+
+interface Props {
+    projects: Project[];
+}
+
+const { projects } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+    <body>
+        <Header />
+        <main>
+            <section id="summary">
+                <h2>Self Introduction</h2>
+                <p>
+                    Previous Bachelor & PhD candidate in Energy and Thermophysics at Tsinghua
+                    University.<br />
+                    Current MSCS graduated from University of Southern California.<br />
+                    Proficient in Backend Development, Frontend Development, and DevOps.<br />
+                    Exploring cloud infrastructure, distributed systems, and machine learning.
+                </p>
+                <div id="skills" class="collapse">
+                    <h4 class="clickable">I have experience writing...</h4>
+                    <ul style="list-style-type: none; padding-left: 0">
+                        <li>Programming Languages: Go, C/C++, Java, Python, JavaScript</li>
+                        <li>
+                            Backend: Java (Spring), Go (Echo, Fiber, Gin, gRPC), Python (Flask),
+                            Node.js (Express)
+                        </li>
+                        <li>Frontend: React, Angular, TanStack, Solid.js</li>
+                        <li>Mobile: Android (Kotlin)</li>
+                        <li>Game: Unity (C#)</li>
+                        <li>
+                            Database & Middleware: PostgreSQL, MySQL, MongoDB, Redis, RabbitMQ,
+                            Kafka
+                        </li>
+                        <li>DevOps: Docker, AWS, GCP, GitHub Actions</li>
+                    </ul>
+                </div>
+                <div id="contact" class="collapse">
+                    <h4 class="clickable">You can reach me at...</h4>
+                    <ul style="list-style-type: none; padding-left: 0">
+                        <li>
+                            GitHub: <a href="https://github.com/shujiejune" target="_blank"
+                                >shujiejune</a
+                            >
+                        </li>
+                        <li>Email: sharon.withe.alt@gmail.com</li>
+                    </ul>
+                </div>
+            </section>
+            <section id="projects" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {projects.map((proj) => <ProjectCard project={proj} />)}
+            </section>
+        </main>
+        <Footer />
+    </body>
+</html>
