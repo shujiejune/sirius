@@ -20,18 +20,20 @@ const { projects } = Astro.props;
     </head>
     <body>
         <Header />
-        <main>
-            <section id="summary">
-                <h2>Self Introduction</h2>
-                <p>
+        <main class="flex flex-col justify-content-center w-4xl">
+            <h2 class="p-6 font-bold text-skin-accent-dark">Self Introduction</h2>
+            <section id="summary" class="pr-6 pb-6 pl-6">
+                <p class="mb-3">
                     Previous Bachelor & PhD candidate in Energy and Thermophysics at Tsinghua
                     University.<br />
                     Current MSCS graduated from University of Southern California.<br />
                     Proficient in Backend Development, Frontend Development, and DevOps.<br />
                     Exploring cloud infrastructure, distributed systems, and machine learning.
                 </p>
-                <div id="skills" class="collapse">
-                    <h4 class="clickable">I have experience writing...</h4>
+                <div id="skills" class="mb-3 text-skin-base">
+                    <h4 class="font-semibold text-skin-accent-dark">
+                        I have experience writing...
+                    </h4>
                     <ul style="list-style-type: none; padding-left: 0">
                         <li>Programming Languages: Go, C/C++, Java, Python, JavaScript</li>
                         <li>
@@ -48,8 +50,8 @@ const { projects } = Astro.props;
                         <li>DevOps: Docker, AWS, GCP, GitHub Actions</li>
                     </ul>
                 </div>
-                <div id="contact" class="collapse">
-                    <h4 class="clickable">You can reach me at...</h4>
+                <div id="contact" class="mb-3 text-skin-base">
+                    <h4 class="font-semibold text-skin-accent-dark">You can reach me at...</h4>
                     <ul style="list-style-type: none; padding-left: 0">
                         <li>
                             GitHub: <a href="https://github.com/shujiejune" target="_blank"
@@ -60,8 +62,11 @@ const { projects } = Astro.props;
                     </ul>
                 </div>
             </section>
-            <section id="projects" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {projects.map((proj) => <ProjectCard project={proj} />)}
+            <section id="projects" class="p-6">
+                <h2 class="mb-6 font-bold text-skin-accent-dark">Featured Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-9">
+                    {projects.map((proj) => <ProjectCard project={proj} />)}
+                </div>
             </section>
         </main>
         <Footer />

@@ -5,7 +5,7 @@ import type { Project } from "@objects/types";
 const projects: Project[] = [
     {
         id: 1,
-        title: "Circuit: LaaS Platform",
+        title: "Logistics as a Service",
         description: "Distributed logistics engine for automated vehicle dispatch and delivery.",
         techStack: {
             backend: ["Go", "gRPC", "PostgreSQL"],
@@ -16,19 +16,16 @@ const projects: Project[] = [
     },
     {
         id: 2,
-        title: "HR Onboarding Microservices",
+        title: "HR Onboarding Portal",
         description:
             "Enterprise portal utilizing event-driven architecture for secure employee onboarding.",
         techStack: {
             frontend: ["React", "Redux"],
             backend: ["Java", "Spring Boot", "MySQL", "MongoDB"],
-            misc: ["Kafka", "Netflix Eureka"],
+            misc: ["Kafka", "Netflix Eureka", "Microservices"],
             devOps: ["AWS S3, EC2, RDS, SES", "Docker"],
         },
-        githubUrl: {
-            frontend: "https://github.com/placeholder/hr-frontend",
-            backend: "https://github.com/placeholder/hr-backend",
-        },
+        githubUrl: "https://github.com/HROS-Team-4",
     },
     {
         id: 3,
@@ -69,7 +66,7 @@ const projects: Project[] = [
     },
     {
         id: 6,
-        title: "Jingdezhen Ceramics Platform",
+        title: "Jingdezhen Ceramics",
         description: "An educational and social platform for ceramic enthusiasts.",
         techStack: {
             frontend: ["TanStack", "Solid.js"],
@@ -93,6 +90,20 @@ const projects: Project[] = [
             backend: "https://github.com/shujiejune/online-shopping-spring",
         },
         demoUrl: "https://youtu.be/nkS-z7LXrI0?si=RkDughAbKyYVMrIE",
+    },
+    {
+        id: 8,
+        title: "Groce Wise",
+        description: "A cross-platform price comparison app for shopping groceries.",
+        techStack: {
+            frontend: ["Flutter"],
+            backend: ["Go", "Gin"],
+            misc: ["Machine Learning", "PostgreSQL", "RESTful API"],
+        },
+        githubUrl: {
+            frontend: "https://github.com/Sparsh-Prabhakar/GroceWise-Flutter",
+            backend: "https://github.com/Sparsh-Prabhakar/GroceWise-Go",
+        },
     },
 ];
 ---

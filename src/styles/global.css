@@ -3,52 +3,75 @@
   https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
+@import "tailwindcss";
 
-:root {
-    --accent: #2337ff;
-    --accent-dark: #000d8a;
-    --black: 15, 18, 25;
-    --gray: 96, 115, 159;
-    --gray-light: 229, 233, 240;
-    --gray-dark: 34, 41, 57;
-    --gray-gradient: rgba(var(--gray-light), 50%), #fff;
-    --box-shadow:
-        0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
-        0 16px 32px rgba(var(--gray), 33%);
+@theme {
+    /* Mapping variables to Tailwind font-family utilities */
+    --font-display: "Lobster", cursive;
+    --font-sans: "Inter", "Noto Sans SC", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: "Lilex", monospace;
+
+    /* This replaces the old tailwind.config.js 'extend' section */
+    --color-skin-base: rgb(var(--color-text-base));
+    --color-skin-accent: rgb(var(--color-accent));
+    --color-skin-accent-dark: rgb(var(--color-accent-dark));
+    --color-skin-fill: rgb(var(--color-fill));
+    --color-skin-card: rgb(var(--color-card));
+    --color-skin-line: rgb(var(--color-line));
 }
+
+/* English or Latin Font */
 @font-face {
     font-family: "Lobster";
-    src: url("/fonts/Lobster-Regular.tff") format("tff");
+    src: url("/fonts/Lobster-Regular.ttf") format("truetype"); /* Fixed extension */
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
+
+/* Chinese Font */
 @font-face {
-    font-family: "Lobster";
-    src: url("/fonts/Lobster-Regular.tff") format("tff");
-    font-weight: 700;
-    font-style: normal;
+    font-family: "Noto Sans SC";
+    src: url("/fonts/NotoSansSC-Regular.ttf") format("truetype");
+    font-weight: 400;
     font-display: swap;
+    /* Optional: use unicode-range to be explicit */
+    unicode-range: U+4E00-9FFF;
 }
+
+:root {
+    /* Using RGB format so Tailwind can apply opacity like /10 */
+    --color-text-base: 31, 41, 55; /* Dark Gray */
+    --color-accent: 35, 55, 255; /* Professional Blue */
+    --color-accent-dark: 0, 13, 138;
+    --color-fill: 255, 255, 255; /* White */
+    --color-card: 249, 250, 251; /* Very Light Gray */
+    --color-line: 229, 231, 235; /* Light Border */
+}
+
+/* Base Styles */
 body {
-    font-family: "Lobster", sans-serif;
+    font-family: var(--font-sans);
+    background-color: var(--color-skin-fill);
+    color: rgb(var(--color-text-base));
     margin: 0;
-    padding: 0;
-    text-align: left;
-    background: linear-gradient(var(--gray-gradient)) no-repeat;
-    background-size: 100% 600px;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    color: rgb(var(--gray-dark));
-    font-size: 20px;
-    line-height: 1.7;
+    font-family: ui-sans-serif, system-ui, sans-serif;
 }
+
+.site-title {
+    font-family: var(--font-display);
+}
+
+code,
+pre {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+}
+
 main {
-    width: 720px;
-    max-width: calc(100% - 2em);
     margin: auto;
-    padding: 3em 1em;
 }
+
 h1,
 h2,
 h3,
@@ -56,7 +79,6 @@ h4,
 h5,
 h6 {
     margin: 0 0 0.5rem 0;
-    color: rgb(var(--black));
     line-height: 1.2;
 }
 h1 {
@@ -73,83 +95,4 @@ h4 {
 }
 h5 {
     font-size: 1.25em;
-}
-strong,
-b {
-    font-weight: 700;
-}
-a {
-    color: var(--accent);
-}
-a:hover {
-    color: var(--accent);
-}
-p {
-    margin-bottom: 1em;
-}
-.prose p {
-    margin-bottom: 2em;
-}
-textarea {
-    width: 100%;
-    font-size: 16px;
-}
-input {
-    font-size: 16px;
-}
-table {
-    width: 100%;
-}
-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-code {
-    padding: 2px 5px;
-    background-color: rgb(var(--gray-light));
-    border-radius: 2px;
-}
-pre {
-    padding: 1.5em;
-    border-radius: 8px;
-}
-pre > code {
-    all: unset;
-}
-blockquote {
-    border-left: 4px solid var(--accent);
-    padding: 0 0 0 20px;
-    margin: 0;
-    font-size: 1.333em;
-}
-hr {
-    border: none;
-    border-top: 1px solid rgb(var(--gray-light));
-}
-@media (max-width: 720px) {
-    body {
-        font-size: 18px;
-    }
-    main {
-        padding: 1em;
-    }
-}
-
-.sr-only {
-    border: 0;
-    padding: 0;
-    margin: 0;
-    position: absolute !important;
-    height: 1px;
-    width: 1px;
-    overflow: hidden;
-    /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
-    clip: rect(1px 1px 1px 1px);
-    /* maybe deprecated but we need to support legacy browsers */
-    clip: rect(1px, 1px, 1px, 1px);
-    /* modern browsers, clip-path works inwards from each corner */
-    clip-path: inset(50%);
-    /* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
-    white-space: nowrap;
 }
