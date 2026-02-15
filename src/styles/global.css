@@ -35,7 +35,7 @@
 /* Site Title Font */
 @font-face {
     font-family: "Kaushan Script";
-    src: url("/fonts/KaushanScript-Regular.woff2") format("woff2"); /* Fixed extension */
+    src: url("../assets/fonts/KaushanScript-Regular.woff2") format("woff2"); /* Fixed extension */
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -44,7 +44,7 @@
 /* English or Latin Font */
 @font-face {
     font-family: "IBM Plex Sans";
-    src: url("/fonts/IBMPlexSans-VariableFont_wdth,wght.woff2") format("woff2");
+    src: url("../assets/fonts/IBMPlexSans-VariableFont_wdth,wght.woff2") format("woff2");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -52,7 +52,7 @@
 
 @font-face {
     font-family: "IBM Plex Sans";
-    src: url("/fonts/IBMPlexSans-Italic-VariableFont_wdth,wght.woff2") format("woff2");
+    src: url("../assets/fonts/IBMPlexSans-Italic-VariableFont_wdth,wght.woff2") format("woff2");
     font-weight: 400;
     font-style: italic;
 }
@@ -60,7 +60,7 @@
 /* Simplified Chinese or Japanese Font */
 @font-face {
     font-family: "Genryu Mincho JP";
-    src: url("/fonts/GenRyuMin2JP-R.woff2") format("woff2");
+    src: url("../assets/fonts/GenRyuMin2JP-R.woff2") format("woff2");
     font-weight: 400;
     font-display: swap;
     /* Optional: use unicode-range to be explicit */
@@ -69,7 +69,7 @@
 
 @font-face {
     font-family: "Genryu Mincho JP";
-    src: url("/fonts/GenRyuMin2JP-B.woff2") format("woff2");
+    src: url("../assets/fonts/GenRyuMin2JP-B.woff2") format("woff2");
     font-weight: 700;
     font-display: swap;
     unicode-range: U+4E00-9FFF, U+3400-4DBF, U+3000-303F;
@@ -78,7 +78,7 @@
 /* Traditional Chinese Font */
 @font-face {
     font-family: "Genryu Mincho TW";
-    src: url("/fonts/GenRyuMin2TW-R.woff2") format("woff2");
+    src: url("../assets/fonts/GenRyuMin2TW-R.woff2") format("woff2");
     font-weight: 400;
     font-display: swap;
     unicode-range: U+4E00-9FFF, U+3400-4DBF, U+3000-303F;
@@ -86,7 +86,7 @@
 
 @font-face {
     font-family: "Genryu Mincho TW";
-    src: url("/fonts/GenRyuMin2TW-B.woff2") format("woff2");
+    src: url("../assets/fonts/GenRyuMin2TW-B.woff2") format("woff2");
     font-weight: 700;
     font-display: swap;
     unicode-range: U+4E00-9FFF, U+3400-4DBF, U+3000-303F;
@@ -95,14 +95,14 @@
 /* Monospace Font */
 @font-face {
     font-family: "Lilex";
-    src: url("/fonts/LilexNerdFontMono-Regular.woff2") format("woff2");
+    src: url("../assets/fonts/LilexNerdFontMono-Regular.woff2") format("woff2");
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Lilex";
-    src: url("/fonts/LilexNerdFontMono-Italic.woff2") format("woff2");
+    src: url("../assets/fonts/LilexNerdFontMono-Italic.woff2") format("woff2");
     font-weight: 400;
     font-style: italic;
 }
