@@ -108,6 +108,7 @@
 }
 
 :root {
+    --header-padding: 1rem;
     /* Using RGB format so Tailwind can apply opacity like /10 */
     --color-text-base: 31, 41, 55; /* Dark Gray */
     --color-accent: 35, 55, 255; /* Professional Blue */
