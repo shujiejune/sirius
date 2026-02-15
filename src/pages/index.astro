@@ -10,14 +10,12 @@ import { SITE_AUTHOR, SITE_DESCRIPTION, SITE_SIGNATURE, SITE_TITLE } from "../co
     <head>
         <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     </head>
-    <body>
+    <body class="flex flex-col min-h-screen">
         <Header />
-        <main
-            style="height: 65vh; display: flex; flex-direction: column; justify-content: center; align-items: center;"
-        >
+        <main class="flex flex-col grow justify-center items-center">
             <h1 class="site-title">{SITE_AUTHOR}</h1>
             <p>{SITE_SIGNATURE}</p>
-            <div class="social-links" style="display: flex; justify-content: center;">
+            <div class="social-links flex justify-content text-skin-accent-dark p-3 gap-2">
                 <a
                     href="https://mstdn.social/@chimonanthus_praecox"
                     target="_blank"
@@ -61,6 +59,7 @@ import { SITE_AUTHOR, SITE_DESCRIPTION, SITE_SIGNATURE, SITE_TITLE } from "../co
                     >
                 </a>
             </div>
+            <slot />
         </main>
         <Footer />
     </body>
