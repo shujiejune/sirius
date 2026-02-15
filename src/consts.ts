@@ -5,3 +5,9 @@ export const SITE_TITLE = "Sirius";
 export const SITE_DESCRIPTION = "My blog theme";
 export const SITE_AUTHOR = "Sirius";
 export const SITE_SIGNATURE = "Welcome to my space!";
+
+export const SOCIAL_LINKS = [
+  { name: "mastodon", url: "https://mstdn.social/@chimonanthus_praecox", label: "Mastodon" },
+  { name: "ao3", url: "https://archiveofourown.org/users/vvithe", label: "AO3" },
+  { name: "github", url: "https://github.com/shujiejune", label: "GitHub" },
+];
