@@ -20,27 +20,29 @@ const { projects } = Astro.props;
     </head>
     <body>
         <Header />
-        <main class="flex flex-col justify-content-center w-4xl">
+        <main class="flex flex-col justify-content-center max-w-4xl">
             <h2 class="p-6 font-bold text-skin-accent-dark">Self Introduction</h2>
             <section id="summary" class="pr-6 pb-6 pl-6">
                 <p class="mb-3">
                     Previous Bachelor & PhD candidate in Energy and Thermophysics at Tsinghua
                     University.<br />
-                    Current MSCS graduated from University of Southern California.<br />
+                    Gained Master's degree in Computer Science from University of Southern California.<br
+                    />
                     Proficient in Backend Development, Frontend Development, and DevOps.<br />
                     Exploring cloud infrastructure, distributed systems, and machine learning.
                 </p>
                 <div id="skills" class="mb-3 text-skin-base">
                     <h4 class="font-bold text-skin-accent-dark">I have experience writing...</h4>
                     <ul style="list-style-type: none; padding-left: 0">
-                        <li>Programming Languages: Go, C/C++, Java, Python, JavaScript</li>
+                        <li>
+                            Programming Languages: Go, C/C++, Java, Python, JavaScript/TypeScript
+                        </li>
                         <li>
                             Backend: Java (Spring), Go (Echo, Fiber, Gin, gRPC), Python (Flask),
                             Node.js (Express)
                         </li>
-                        <li>Frontend: React, Angular, TanStack, Solid.js</li>
-                        <li>Mobile: Android (Kotlin)</li>
-                        <li>Game: Unity (C#)</li>
+                        <li>Frontend: React, Angular, TanStack, Solid.js, Astro</li>
+                        <li>Game & Mobile: Unity (C#), Android (Kotlin)</li>
                         <li>
                             Database & Middleware: PostgreSQL, MySQL, MongoDB, Redis, RabbitMQ,
                             Kafka
@@ -52,8 +54,10 @@ const { projects } = Astro.props;
                     <h4 class="font-bold text-skin-accent-dark">You can reach me at...</h4>
                     <ul style="list-style-type: none; padding-left: 0">
                         <li>
-                            GitHub: <a href="https://github.com/shujiejune" target="_blank"
-                                >shujiejune</a
+                            GitHub: <a
+                                href="https://github.com/shujiejune"
+                                target="_blank"
+                                class="underline decoration-dotted">shujiejune</a
                             >
                         </li>
                         <li>Email: sharon.withe.alt@gmail.com</li>
