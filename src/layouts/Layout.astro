@@ -7,7 +7,12 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<!doctype html>
+<script is:inline>
+    // Check for saved preference or system locale
+    const savedLang = localStorage.getItem("preferred-lang") || "zh-Hans";
+    document.documentElement.lang = savedLang;
+</script>
+
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
