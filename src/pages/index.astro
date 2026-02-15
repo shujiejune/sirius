@@ -14,15 +14,15 @@ import { SITE_AUTHOR, SITE_DESCRIPTION, SITE_SIGNATURE, SITE_TITLE, SOCIAL_LINKS
     <body class="flex flex-col min-h-screen">
         <Header />
         <main class="flex flex-col grow justify-center items-center">
-            <h1 class="site-title text-skin-accent">{SITE_AUTHOR}</h1>
-            <p class="text-skin-base">{SITE_SIGNATURE}</p>
-            <div class="social-links flex justify-content text-skin-accent-dark p-3 gap-2">
+            <h1 class="site-title text-skin-accent-dark">{SITE_AUTHOR}</h1>
+            <p class="text-skin-accent-dark">{SITE_SIGNATURE}</p>
+            <div class="social-links flex justify-content p-3 gap-2">
                 {
                     SOCIAL_LINKS.map((link) => (
                         <a
                             href={link.url}
                             title={link.label}
-                            class="text-skin-base hover:text-skin-accent transition-colors duration-200"
+                            class="text-skin-accent-dark hover:text-skin-accent transition-colors duration-200"
                         >
                             <span class="sr-only">{link.label}</span>{" "}
                             <SocialIcon platform={link.name} />
