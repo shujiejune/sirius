@@ -20,9 +20,9 @@ const { projects } = Astro.props;
     </head>
     <body>
         <Header />
-        <main class="flex flex-col justify-content-center max-w-4xl">
-            <h2 class="p-6 font-bold text-skin-accent-dark">Self Introduction</h2>
-            <section id="summary" class="pr-6 pb-6 pl-6">
+        <main class="flex flex-col justify-content-center px-6 py-12 max-w-4xl mx-auto">
+            <h1 class="text-4xl text-skin-accent-dark">Self Introduction</h1>
+            <section id="summary" class="mt-12 mb-12 pb-6 border-b border-skin-line">
                 <p class="mb-3">
                     Previous Bachelor & PhD candidate in Energy and Thermophysics at Tsinghua
                     University.<br />
@@ -32,7 +32,7 @@ const { projects } = Astro.props;
                     Exploring cloud infrastructure, distributed systems, and machine learning.
                 </p>
                 <div id="skills" class="mb-3 text-skin-base">
-                    <h4 class="font-bold text-skin-accent-dark">I have experience writing...</h4>
+                    <h4 class="text-skin-accent-dark">I have experience writing...</h4>
                     <ul style="list-style-type: none; padding-left: 0">
                         <li>
                             Programming Languages: Go, C/C++, Java, Python, JavaScript/TypeScript
@@ -50,8 +50,8 @@ const { projects } = Astro.props;
                         <li>DevOps: Docker, AWS, GCP, GitHub Actions</li>
                     </ul>
                 </div>
-                <div id="contact" class="mb-3 text-skin-base">
-                    <h4 class="font-bold text-skin-accent-dark">You can reach me at...</h4>
+                <div id="contact" class="text-skin-base">
+                    <h4 class="text-skin-accent-dark">You can reach me at...</h4>
                     <ul style="list-style-type: none; padding-left: 0">
                         <li>
                             GitHub: <a
@@ -64,9 +64,9 @@ const { projects } = Astro.props;
                     </ul>
                 </div>
             </section>
-            <section id="projects" class="p-6">
-                <h2 class="mb-6 font-bold text-skin-accent-dark">Featured Projects</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-9">
+            <section id="projects">
+                <h2 class="mb-6 text-2xl text-skin-accent-dark">Featured Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-12">
                     {projects.map((proj) => <ProjectCard project={proj} />)}
                 </div>
             </section>
