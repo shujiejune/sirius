@@ -2,28 +2,17 @@
 title: 'Markdown Style Guide'
 description: 'Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.'
 pubDate: 'Jun 19 2024'
+updatedDate: 'Feb 27 2026'
 heroImage: '../../assets/images/blog-placeholder-1.jpg'
+tags: ['markdown', 'style', 'guide']
 ---
 
-Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.
 <p>残腊归来绿不凋，得风黑鹄鼓春潮。湖光贯破琉璃冷，草色犹粘上石桥。</p>
 <p>殘臘歸來綠不凋，得風黑鵠鼓春潮。湖光貫破琉璃冷，草色猶粘上石橋。</p>
 
 ## Headings
 
 The following HTML `<h1>`—`<h6>` elements represent six levels of section headings. `<h1>` is the highest section level while `<h6>` is the lowest.
-
-# H1
-
-## H2
-
-### H3
-
-#### H4
-
-##### H5
-
-###### H6
 
 ## Paragraph
 

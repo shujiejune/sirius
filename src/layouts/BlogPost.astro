@@ -2,12 +2,17 @@
 import type { CollectionEntry } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
-import FormattedDate from "../components/FormattedDate.astro";
 import Header from "../components/Header.astro";
+import TableOfContents from "../components/TableOfContents.astro";
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = CollectionEntry<"blog">["data"] & {
+    headings?: any[];
+    wordCount?: number;
+};
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, tags = [], headings, wordCount } = Astro.props;
+// Date formatter helper
+const formatDate = (date) => new Date(date).toISOString().split("T")[0];
 ---
 
 <!doctype html>
@@ -20,21 +25,59 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
             <Header />
         </div>
 
-        <main class="grow w-full max-w-3xl mx-auto px-6 py-12">
+        <main
+            class="grow w-full max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-4 gap-12 items-start"
+        >
             <article
-                class="prose prose-slate prose-a:text-(--water-primary) prose-headings:text-(--water-primary) max-w-none"
+                class="w-full max-w-3xl lg:col-span-3 prose prose-slate prose-a:text-skin-base prose-headings:text-skin-base"
             >
-                <header class="mb-8 not-prose border-b border-slate-200 pb-8">
-                    <h1 class="font-bold text-4xl text-(--water-primary) mb-2">
+                <header class="mb-8 not-prose border-b border-slate-200 pb-4">
+                    <h1 class="font-bold text-4xl text-skin-base mb-2">
                         {title}
                     </h1>
-                    <time class="font-mono text-sm text-slate-500">
-                        {new Date(pubDate).toISOString().split("T")[0]}
-                    </time>
+                    <div
+                        class="flex flex-wrap items-center gap-2 mt-4 text-sm font-sans text-slate-500"
+                    >
+                        <span>Published {formatDate(pubDate)}</span>
+                        {
+                            updatedDate && (
+                                <>
+                                    <span class="text-slate-300">•</span>
+                                    <span>Updated {formatDate(updatedDate)}</span>
+                                </>
+                            )
+                        }
+                        <span class="text-slate-300">•</span>
+                        <span>{wordCount} words</span>
+                    </div>
+
+                    {
+                        tags.length > 0 && (
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                {tags.map((tag) => (
+                                    <span class="py-1 font-sans text-sm text-slate-500">
+                                        #{tag}
+                                    </span>
+                                ))}
+                            </div>
+                        )
+                    }
                 </header>
+
+                <p class="leading-relaxed mt-4 border-l-4 border-skin-accent-dark pl-4">
+                    {description}
+                </p>
 
                 <slot />
             </article>
+
+            {
+                headings && headings.length > 0 && (
+                    <aside class="hidden lg:block lg:col-span-1 sticky top-24 h-fit max-h-[calc(100vh-8rem)] overflow-y-auto pr-4">
+                        <TableOfContents headings={headings} />
+                    </aside>
+                )
+            }
         </main>
 
         <div class="w-full">
