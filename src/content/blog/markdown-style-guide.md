@@ -2,10 +2,12 @@
 title: 'Markdown Style Guide'
 description: 'Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.'
 pubDate: 'Jun 19 2024'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: '../../assets/images/blog-placeholder-1.jpg'
 ---
 
 Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.
+<p>残腊归来绿不凋，得风黑鹄鼓春潮。湖光贯破琉璃冷，草色犹粘上石桥。</p>
+<p>殘臘歸來綠不凋，得風黑鵠鼓春潮。湖光貫破琉璃冷，草色猶粘上石橋。</p>
 
 ## Headings
 
@@ -39,7 +41,7 @@ Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sap
 
 ### Output
 
-![blog placeholder](../../assets/blog-placeholder-about.jpg)
+![blog placeholder](../../assets/images/blog-placeholder-1.jpg)
 
 ## Blockquotes
 

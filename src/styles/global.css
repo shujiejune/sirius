@@ -4,6 +4,7 @@
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @theme {
     /* Mapping variables to Tailwind font-family utilities */

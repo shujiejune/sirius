@@ -15,4 +15,12 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  markdown: {
+    shikiConfig: {
+      // Choose your preferred dark theme
+      // Popular options: 'tokyo-night', 'dracula', 'vitesse-dark', 'github-dark'
+      theme: "tokyo-night",
+      wrap: true, // Wraps long lines of code
+    },
+  },
 });
