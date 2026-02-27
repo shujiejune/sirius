@@ -4,6 +4,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import TableOfContents from "../components/TableOfContents.astro";
+import { formatDateToISO } from "../utils/formatDate";
 
 type Props = CollectionEntry<"blog">["data"] & {
     headings?: any[];
@@ -11,8 +12,6 @@ type Props = CollectionEntry<"blog">["data"] & {
 };
 
 const { title, description, pubDate, updatedDate, tags = [], headings, wordCount } = Astro.props;
-// Date formatter helper
-const formatDate = (date) => new Date(date).toISOString().split("T")[0];
 ---
 
 <!doctype html>
@@ -38,12 +37,12 @@ const formatDate = (date) => new Date(date).toISOString().split("T")[0];
                     <div
                         class="flex flex-wrap items-center gap-2 mt-4 text-sm font-sans text-slate-500"
                     >
-                        <span>Published {formatDate(pubDate)}</span>
+                        <span>Published {formatDateToISO(pubDate)}</span>
                         {
                             updatedDate && (
                                 <>
                                     <span class="text-slate-300">•</span>
-                                    <span>Updated {formatDate(updatedDate)}</span>
+                                    <span>Updated {formatDateToISO(updatedDate)}</span>
                                 </>
                             )
                         }
