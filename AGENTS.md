@@ -26,8 +26,8 @@ pnpm astro <command>  # Astro CLI (e.g. pnpm astro check)
 - `astro.config.mjs` — site config. Note `site` and `base: "/sirius"`; all internal links must respect the base path. Integrations: MDX, sitemap. Tailwind CSS v4 is wired in through the Vite plugin (`@tailwindcss/vite`), not a PostCSS config.
 - `src/pages/` — file-based routing (`index.astro`, `about.astro`, `projects.astro`, `rss.xml.js`).
 - `src/content/` — blog content collections; schema defined in `src/content.config.ts`.
-- `src/layouts/` — `Layout.astro` (base HTML), `BlogPost.astro` (post page with Table of Contents), `Portfolio.astro`.
-- `src/components/` — Astro components (header, footer, `TableOfContents`, language toggle, etc.).
+- `src/layouts/` — `BlogPost.astro` (post page with Table of Contents), `Portfolio.astro`. There is no shared base layout: every page/layout assembles its own `<html>` shell from `BaseHead`, `Header`, and `Footer`.
+- `src/components/` — Astro components (header, footer, `TableOfContents`, social icons, etc.).
 - `src/styles/global.css` — Tailwind v4 entry (uses `@import "tailwindcss"` syntax, not the legacy `@tailwind` directives).
 - `src/utils/` — helpers such as `formatDate.js` and `wordCount.js` (word count supports CJK characters).
 - `src/assets/` — fonts and images colocated with source; referenced via Astro's asset pipeline, not `public/`.

@@ -1,14 +1,27 @@
 ---
+import type { MarkdownHeading } from "astro";
+
+interface TocNode extends MarkdownHeading {
+    children: TocNode[];
+}
+
+interface Props {
+    headings: MarkdownHeading[];
+    isRoot?: boolean;
+}
+
 const { headings, isRoot = true } = Astro.props;
 
-let toc = headings;
+// Nested calls receive already-built TocNodes; the root call receives
+// flat headings from render() and builds the tree below.
+let toc = headings as TocNode[];
 
 if (isRoot) {
     toc = [];
-    const parentStack = [];
+    const parentStack: TocNode[] = [];
 
     headings.forEach((h) => {
-        const heading = { ...h, children: [] };
+        const heading: TocNode = { ...h, children: [] };
 
         while (parentStack.length > 0 && parentStack[parentStack.length - 1].depth >= heading.depth) {
             parentStack.pop();
