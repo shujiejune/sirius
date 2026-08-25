@@ -4,12 +4,12 @@ Guidance for AI coding agents working in this repository.
 
 ## Project Overview
 
-**Sirius** is a personal blog + portfolio site built with [Astro 5](https://astro.build), deployed to GitHub Pages at `https://shujiejune.github.io/sirius/`. The site is statically generated (no SSR/framework runtime). Content is written in Markdown/MDX.
+**Sirius** is a personal blog + portfolio site built with [Astro 7](https://astro.build), deployed to GitHub Pages at `https://shujiejune.github.io/sirius/`. The site is statically generated (no SSR/framework runtime). Content is written in Markdown/MDX.
 
 ## Tooling
 
 - **Package manager: pnpm** (do not use npm, yarn, or bun). The lockfile is `pnpm-lock.yaml` — commit changes to it whenever dependencies change.
-- Node.js LTS.
+- Node.js ≥ 22.12 (required by Astro 7).
 
 ## Commands
 
