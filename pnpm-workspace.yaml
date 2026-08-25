@@ -1,0 +1,7 @@
+singlePackage: true
+
+# Dependencies whose postinstall scripts pnpm is allowed to run.
+# esbuild installs its platform binary; sharp installs native libvips bindings.
+allowBuilds:
+  esbuild: true
+  sharp: true
