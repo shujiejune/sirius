@@ -72,7 +72,9 @@ const {
 
             {headings && headings.length > 0 && (
                 <aside class="hidden lg:block lg:col-start-3 lg:row-start-1 lg:justify-self-end w-64 max-w-full sticky top-24 h-fit max-h-[calc(100vh-8rem)] overflow-y-auto">
-                    <TableOfContents headings={headings.filter((h) => h.depth <= 3)} />
+                    <TableOfContents
+                        headings={headings.filter((h) => h.depth <= 3)}
+                    />
                 </aside>
             )}
         </main>
@@ -80,5 +82,124 @@ const {
         <div class="w-full">
             <Footer />
         </div>
+
+        <script>
+            // Language tag + one-click copy for markdown code blocks.
+            // Shiki output: <pre class="astro-code" data-language="js"><code>…</code></pre>
+            function copyText(text: string): Promise<void> {
+                if (navigator.clipboard?.writeText) {
+                    return navigator.clipboard.writeText(text);
+                }
+                // Fallback for non-secure contexts
+                return new Promise((resolve, reject) => {
+                    const ta = document.createElement("textarea");
+                    ta.value = text;
+                    ta.style.position = "fixed";
+                    ta.style.opacity = "0";
+                    document.body.appendChild(ta);
+                    ta.select();
+                    try {
+                        document.execCommand("copy") ? resolve() : reject();
+                    } catch (err) {
+                        reject(err);
+                    } finally {
+                        ta.remove();
+                    }
+                });
+            }
+
+            document
+                .querySelectorAll<HTMLElement>("pre.astro-code")
+                .forEach((pre) => {
+                    const code = pre.querySelector<HTMLElement>("code");
+                    if (!code) return;
+
+                    const button = document.createElement("button");
+                    button.type = "button";
+                    button.className = "code-copy-btn";
+                    button.textContent = "copy";
+                    button.addEventListener("click", () => {
+                        copyText(code.innerText.replace(/\n+$/, "")).then(
+                            () => {
+                                button.textContent = "copied ✓";
+                                button.classList.add("copied");
+                                setTimeout(() => {
+                                    button.textContent = "copy";
+                                    button.classList.remove("copied");
+                                }, 1500);
+                            },
+                            () => {
+                                button.textContent = "Failed";
+                                setTimeout(
+                                    () => (button.textContent = "copy"),
+                                    1500,
+                                );
+                            },
+                        );
+                    });
+
+                    const label = document.createElement("span");
+                    label.className = "code-block-lang";
+                    label.textContent = pre.dataset.language || "text";
+
+                    const tools = document.createElement("div");
+                    tools.className = "code-block-tools";
+                    tools.append(label, button);
+
+                    const wrapper = document.createElement("div");
+                    wrapper.className = "code-block";
+                    pre.replaceWith(wrapper);
+                    wrapper.append(tools, pre);
+                });
+        </script>
+        <style is:global>
+            /* Colors match the kanagawa-wave Shiki theme (astro.config.mjs) */
+            .code-block {
+                position: relative;
+                margin: 1.71429em 0; /* same rhythm as .prose pre */
+            }
+            .code-block-tools {
+                position: absolute;
+                top: 0.5rem;
+                right: 0.85rem;
+                z-index: 1;
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                font-family: var(--font-mono);
+                font-size: 0.72rem;
+                line-height: 1;
+            }
+            .code-block-lang {
+                color: #7aa9f6; /* springBlue */
+                letter-spacing: 0.05em;
+                pointer-events: none;
+            }
+            .code-copy-btn {
+                background: transparent;
+                border: none;
+                padding: 0;
+                font: inherit;
+                color: #dcd7ba; /* fujiWhite */
+                opacity: 0.95;
+                cursor: pointer;
+                transition:
+                    opacity 150ms,
+                    color 150ms;
+            }
+            .code-copy-btn:hover,
+            .code-copy-btn:focus-visible {
+                opacity: 1;
+            }
+            .code-copy-btn.copied {
+                color: #b5d68d; /* lightened springGreen */
+                opacity: 1;
+            }
+            .code-block > pre.astro-code {
+                margin: 0;
+                /* room for the floating tools row */
+                padding-top: 2.2rem;
+            }
+        </style>
     </body>
 </html>

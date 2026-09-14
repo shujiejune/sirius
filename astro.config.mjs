@@ -17,8 +17,8 @@ export default defineConfig({
   markdown: {
     shikiConfig: {
       // Choose your preferred dark theme
-      // Popular options: 'tokyo-night', 'dracula', 'vitesse-dark', 'github-dark'
-      theme: "tokyo-night",
+      // Popular options: 'tokyo-night', 'dracula', 'vitesse-dark', 'github-dark', 'kanagawa-wave'
+      theme: "kanagawa-dragon",
       wrap: true, // Wraps long lines of code
     },
   },

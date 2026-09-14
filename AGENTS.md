@@ -36,7 +36,7 @@ pnpm astro <command>  # Astro CLI (e.g. pnpm astro check)
 ## Conventions
 
 - No UI framework (React/Vue/Svelte) — plain `.astro` components plus Tailwind.
-- Markdown code blocks are highlighted with Shiki, theme `tokyo-night` (configured in `astro.config.mjs`).
+- Markdown code blocks are highlighted with Shiki, theme `kanagawa-wave` (configured in `astro.config.mjs`).
 - TypeScript is checked with `// @ts-check` in `.mjs` configs; `tsconfig.json` extends `astro/tsconfigs/strict`.
 
 ## Deployment

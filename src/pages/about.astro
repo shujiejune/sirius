@@ -3,7 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
-const changelog = [
+const changelog: { date: string; content: string; link?: string }[] = [
     {
         date: "2026-09-13",
         content: "Migrated from GitHub Pages to CloudFlare Workers.",
