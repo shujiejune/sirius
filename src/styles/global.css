@@ -9,8 +9,8 @@
 @theme {
     /* Mapping variables to Tailwind font-family utilities */
     --font-display: "Kaushan Script", cursive;
-    --font-sans: "IBM Plex Sans", "Genryu Mincho TW", "Genryu Mincho JP", sans-serif;
-    --font-mono: "Lilex", monospace;
+    --font-sans: "Tirra", "Noto Sans SC", "Noto Sans TC", sans-serif;
+    --font-mono: "Iosevka", monospace;
 
     /* This replaces the old tailwind.config.js 'extend' section */
     --color-skin-base: rgb(var(--color-text-base));
@@ -24,13 +24,13 @@
 /* When the language is set to Traditional Chinese */
 :lang(zh-Hant),
 :lang(zh-TW) {
-    --font-sans: "IBM Plex Sans", "Genryu Mincho TW", sans-serif;
+    --font-sans: "Tirra", "Noto Sans TC", sans-serif;
 }
 
 /* When the language is set to Simplified Chinese */
 :lang(zh-Hans),
 :lang(zh-CN) {
-    --font-sans: "IBM Plex Sans", "Genryu Mincho JP", sans-serif;
+    --font-sans: "Tirra", "Noto Sans SC", sans-serif;
 }
 
 /* Site Title Font */
@@ -44,66 +44,52 @@
 
 /* English or Latin Font */
 @font-face {
-    font-family: "IBM Plex Sans";
-    src: url("../assets/fonts/IBMPlexSans-VariableFont_wdth,wght.woff2") format("woff2");
+    font-family: "Tirra";
+    src: url("../assets/fonts/Tirra-Regular.woff2") format("woff2");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
-
 @font-face {
-    font-family: "IBM Plex Sans";
-    src: url("../assets/fonts/IBMPlexSans-Italic-VariableFont_wdth,wght.woff2") format("woff2");
-    font-weight: 400;
-    font-style: italic;
+    font-family: "Tirra";
+    src: url("../assets/fonts/Tirra-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
 }
 
-/* Simplified Chinese or Japanese Font */
+/* Simplified Chinese Font */
 @font-face {
-    font-family: "Genryu Mincho JP";
-    src: url("../assets/fonts/GenRyuMin2JP-R.woff2") format("woff2");
-    font-weight: 400;
+    font-family: "Noto Sans SC";
+    src: url("../assets/fonts/NotoSansSC-VariableFont_wght.woff2") format("woff2-variations"),
+         url("../assets/fonts/NotoSansSC-VariableFont_wght.woff2") format("woff2");
+    font-weight: 100 900;
     font-display: swap;
     /* Optional: use unicode-range to be explicit */
-    unicode-range: U+4E00-9FFF, U+3400-4DBF, U+3000-303F;
-}
-
-@font-face {
-    font-family: "Genryu Mincho JP";
-    src: url("../assets/fonts/GenRyuMin2JP-B.woff2") format("woff2");
-    font-weight: 700;
-    font-display: swap;
-    unicode-range: U+4E00-9FFF, U+3400-4DBF, U+3000-303F;
+    unicode-range: U+3000-303F, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FE30-FE4F, U+FF00-FFEF;
 }
 
 /* Traditional Chinese Font */
 @font-face {
-    font-family: "Genryu Mincho TW";
-    src: url("../assets/fonts/GenRyuMin2TW-R.woff2") format("woff2");
-    font-weight: 400;
+    font-family: "Noto Sans TC";
+    src: url("../assets/fonts/NotoSansTC-VariableFont_wght.woff2") format("woff2-variations"),
+         url("../assets/fonts/NotoSansTC-VariableFont_wght.woff2") format("woff2");
+    font-weight: 100 900;
     font-display: swap;
-    unicode-range: U+4E00-9FFF, U+3400-4DBF, U+3000-303F;
-}
-
-@font-face {
-    font-family: "Genryu Mincho TW";
-    src: url("../assets/fonts/GenRyuMin2TW-B.woff2") format("woff2");
-    font-weight: 700;
-    font-display: swap;
-    unicode-range: U+4E00-9FFF, U+3400-4DBF, U+3000-303F;
+    unicode-range: U+3000-303F, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FE30-FE4F, U+FF00-FFEF;
 }
 
 /* Monospace Font */
 @font-face {
-    font-family: "Lilex";
-    src: url("../assets/fonts/LilexNerdFontMono-Regular.woff2") format("woff2");
+    font-family: "Iosevka";
+   src: url("../assets/fonts/IosevkaNerdFontMono-Regular.woff2") format("woff2");
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
-    font-family: "Lilex";
-    src: url("../assets/fonts/LilexNerdFontMono-Italic.woff2") format("woff2");
+    font-family: "Iosevka";
+    src: url("../assets/fonts/IosevkaNerdFontMono-Italic.woff2") format("woff2");
     font-weight: 400;
     font-style: italic;
 }
@@ -122,6 +108,7 @@
 /* Base Styles */
 body {
     font-family: var(--font-sans);
+    font-size: 18px;
     background-color: var(--color-skin-fill);
     color: rgb(var(--color-text-base));
     margin: 0;
@@ -134,7 +121,7 @@ body {
 code,
 pre {
     font-family: var(--font-mono);
-    font-size: 0.9em;
+    font-size: 18px;
 }
 
 main {
@@ -165,4 +152,7 @@ h4 {
 }
 h5 {
     font-size: 1.25em;
+}
+h6 {
+    font-size: 1em;
 }
