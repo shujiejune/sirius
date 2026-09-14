@@ -2,14 +2,8 @@
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-import SocialIcon from "../components/SocialIcon.astro";
-import {
-    SITE_AUTHOR,
-    SITE_DESCRIPTION,
-    SITE_SIGNATURE,
-    SITE_TITLE,
-    SOCIAL_LINKS,
-} from "../consts";
+import AuthorImageBack from "../assets/images/jieniu-back.svg?url";
+import { SITE_DESCRIPTION, SITE_SIGNATURE, SITE_TITLE } from "../consts";
 ---
 
 <!doctype html>
@@ -21,25 +15,11 @@ import {
         <Header />
         <main class="flex flex-col grow justify-center items-center">
             <img
-                src="src/assets/images/jieniu-back.svg"
+                src={AuthorImageBack}
                 alt="My personal image: the back of Ze'Fang"
                 width="450"
             />
             <p class="text-skin-accent-dark font-display">{SITE_SIGNATURE}</p>
-            <!--
-            <div class="social-links flex justify-content p-3 gap-2">
-                {SOCIAL_LINKS.map((link) => (
-                    <a
-                        href={link.url}
-                        title={link.label}
-                        class="text-skin-accent-dark hover:text-skin-accent transition-colors duration-200"
-                    >
-                        <span class="sr-only">{link.label}</span>{" "}
-                        <SocialIcon platform={link.name} />
-                    </a>
-                ))}
-            </div>
-            -->
             <slot />
         </main>
         <Footer />

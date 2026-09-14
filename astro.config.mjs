@@ -18,7 +18,7 @@ export default defineConfig({
     shikiConfig: {
       // Choose your preferred dark theme
       // Popular options: 'tokyo-night', 'dracula', 'vitesse-dark', 'github-dark', 'kanagawa-wave'
-      theme: "kanagawa-dragon",
+      theme: "kanagawa-wave",
       wrap: true, // Wraps long lines of code
     },
   },
