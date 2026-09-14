@@ -21,12 +21,14 @@ const { projects } = Astro.props;
     <body>
         <Header />
         <main class="flex flex-col justify-content-center px-6 py-12 max-w-3xl mx-auto">
-            <h1 class="text-4xl text-skin-accent-dark">Self Introduction</h1>
+            <h1 class="text-4xl text-skin-accent-dark">Projects</h1>
             <section id="projects">
-                <h2 class="mb-6 text-2xl text-skin-accent-dark">
-                    Featured Projects
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-12">
+                <div class="prose prose-slate mt-12 mb-12">
+                    <p class="text-lg leading-relaxed text-skin-base">
+                        Import my resume projects as placeholders.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {projects.map((proj) => (
                         <ProjectCard project={proj} />
                     ))}
