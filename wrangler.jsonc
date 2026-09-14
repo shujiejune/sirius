@@ -1,0 +1,11 @@
+{
+  // Cloudflare Workers static-assets deployment config.
+  // The Worker has no server code — it serves the Astro build output.
+  "name": "sirius",
+  "compatibility_date": "2026-09-13",
+  "assets": {
+    "directory": "./dist",
+    // Serve the Astro-generated 404 page for unknown paths.
+    "not_found_handling": "404-page"
+  }
+}

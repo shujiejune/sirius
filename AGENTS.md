@@ -41,4 +41,4 @@ pnpm astro <command>  # Astro CLI (e.g. pnpm astro check)
 
 ## Deployment
 
-GitHub Actions workflow at `.github/workflows/deploy.yml` builds with pnpm and deploys `./dist/` to GitHub Pages on every push to `main`. Verify `pnpm build` passes locally before pushing.
+Deployed to **Cloudflare Workers** (static assets, free tier) via git-connected builds: every push to `main` is built by Cloudflare (`pnpm run build`, Node pinned via `.nvmrc`) and deployed with `wrangler deploy` per `wrangler.jsonc` (serves `./dist`, `404.astro` handles unknown paths). Custom domain: `jieniu.jetzt`. Verify `pnpm build` and `pnpm astro check` pass locally before pushing.

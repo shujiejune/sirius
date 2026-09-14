@@ -1,0 +1,29 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <BaseHead title="404 | Sirius" description="Page not found." />
+    </head>
+    <body class="flex flex-col min-h-screen">
+        <Header />
+
+        <main class="flex flex-col grow justify-center items-center text-center px-6">
+            <h1 class="font-sans text-6xl text-skin-accent-dark">404</h1>
+            <p class="text-slate-600 mt-4">The page you are looking for does not exist.</p>
+            <a
+                href="/"
+                class="mt-8 inline-block px-5 py-2 rounded-md border border-skin-line hover:text-skin-accent hover:border-skin-accent transition-colors"
+            >
+                Back to home
+            </a
+            >
+        </main>
+
+        <Footer />
+    </body>
+</html>
