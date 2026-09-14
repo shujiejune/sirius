@@ -3,7 +3,7 @@
 
 export const SITE_TITLE = "Sirius";
 export const SITE_DESCRIPTION = "My blog theme";
-export const SITE_AUTHOR = "Sirius";
+export const SITE_AUTHOR = "jieniu";
 export const SITE_SIGNATURE = "情在綢繆歌白紵，心同慷慨贈青萍。";
 
 export const SOCIAL_LINKS = [
