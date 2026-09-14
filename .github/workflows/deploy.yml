@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy to CloudFlare
 
 on:
   push:
@@ -38,9 +38,9 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     environment:
-      name: github-pages
+      name: cloudflare
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy to CloudFlare
         id: deployment
         uses: actions/deploy-pages@v5
