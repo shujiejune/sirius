@@ -38,8 +38,8 @@ if (isRoot) {
 ---
 
 {isRoot ? (
-  <nav class="toc text-sm max-h-[calc(100vh-8rem)] overflow-y-auto no-scrollbar pt-2">
-    <h3 class="font-bold text-md text-skin-base mb-4 pb-2">Table of Contents</h3>
+  <nav class="toc text-base max-h-[calc(100vh-8rem)] overflow-y-auto no-scrollbar pt-2">
+    <h3 class="font-bold text-md text-skin-base mb-4 pb-2 whitespace-nowrap">Table of Contents</h3>
     <ul class="space-y-3">
       {toc.map((heading) => (
         <li>
@@ -110,7 +110,7 @@ if (isRoot) {
           rootMargin: '-100px 0px -80% 0px'
         });
 
-        document.querySelectorAll('.prose h2, .prose h3, .prose h4, .prose h5, .prose h6').forEach((heading) => {
+        document.querySelectorAll('.prose h2, .prose h3').forEach((heading) => {
           observer.observe(heading);
         });
       };
