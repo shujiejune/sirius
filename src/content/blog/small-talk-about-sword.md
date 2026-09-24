@@ -1,5 +1,6 @@
 ---
 title: '說劍'
+description: '情在綢繆歌白紵，心同慷慨贈青萍。'
 pubDate: 'Sep 23 2026'
 tags: ['戀物癖']
 ---
