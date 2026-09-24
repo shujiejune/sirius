@@ -170,6 +170,11 @@
   element (e.g. px-6, text-4xl on <main>/<h1>) always take precedence.
 */
 @layer base {
+    html {
+        /* Always reserve the scrollbar gutter so content centering stays
+           identical on pages with and without a vertical scrollbar. */
+        scrollbar-gutter: stable;
+    }
     body {
         font-family: var(--font-serif);
         font-size: 18px;
