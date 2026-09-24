@@ -9,7 +9,7 @@
 @theme {
     /* Mapping variables to Tailwind font-family utilities */
     --font-display: "Kaushan Script", cursive;
-    --font-sans: "Tirra", "Noto Sans SC", "Noto Sans TC", sans-serif;
+    --font-sans: "Tirra", "GenRyuMin2TW", sans-serif;
     --font-mono: "Iosevka", monospace;
 
     /* This replaces the old tailwind.config.js 'extend' section */
@@ -21,16 +21,10 @@
     --color-skin-line: rgb(var(--color-line));
 }
 
-/* When the language is set to Traditional Chinese */
+/* When the language is set to Chinese */
 :lang(zh-Hant),
 :lang(zh-TW) {
-    --font-sans: "Tirra", "Noto Sans TC", sans-serif;
-}
-
-/* When the language is set to Simplified Chinese */
-:lang(zh-Hans),
-:lang(zh-CN) {
-    --font-sans: "Tirra", "Noto Sans SC", sans-serif;
+    --font-sans: "Tirra", "GenRyuMin2TW", sans-serif;
 }
 
 /* Site Title Font */
@@ -58,23 +52,19 @@
     font-display: swap;
 }
 
-/* Simplified Chinese Font */
+/* Chinese Font */
 @font-face {
-    font-family: "Noto Sans SC";
-    src: url("../assets/fonts/NotoSansSC-VariableFont_wght.woff2") format("woff2-variations"),
-         url("../assets/fonts/NotoSansSC-VariableFont_wght.woff2") format("woff2");
-    font-weight: 100 900;
+    font-family: "GenRyuMin2TW";
+    src: url("../assets/fonts/GenRyuMin2TW-R.woff2") format("woff2");
+    font-weight: 400;
     font-display: swap;
     /* Optional: use unicode-range to be explicit */
     unicode-range: U+3000-303F, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FE30-FE4F, U+FF00-FFEF;
 }
-
-/* Traditional Chinese Font */
 @font-face {
-    font-family: "Noto Sans TC";
-    src: url("../assets/fonts/NotoSansTC-VariableFont_wght.woff2") format("woff2-variations"),
-         url("../assets/fonts/NotoSansTC-VariableFont_wght.woff2") format("woff2");
-    font-weight: 100 900;
+    font-family: "GenRyuMin2TW";
+    src: url("../assets/fonts/GenRyuMin2TW-B.woff2") format("woff2");
+    font-weight: 700;
     font-display: swap;
     unicode-range: U+3000-303F, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FE30-FE4F, U+FF00-FFEF;
 }
