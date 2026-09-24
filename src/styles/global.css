@@ -9,7 +9,9 @@
 @theme {
     /* Mapping variables to Tailwind font-family utilities */
     --font-display: "Kaushan Script", cursive;
-    --font-sans: "Tirra", "GenRyuMin2TW", sans-serif;
+    --font-sans: "Sofia Sans", "AkiSora Sans", sans-serif;
+    --font-serif: "Zilla Slab", "GenRyuMin2TW", serif;
+    --font-quote: "Enriqueta", "SatsukiGendaiMincho", serif;
     --font-mono: "Iosevka", monospace;
 
     /* This replaces the old tailwind.config.js 'extend' section */
@@ -24,7 +26,7 @@
 /* When the language is set to Chinese */
 :lang(zh-Hant),
 :lang(zh-TW) {
-    --font-sans: "Tirra", "GenRyuMin2TW", sans-serif;
+    --font-serif: "Zilla Slab", "GenRyuMin2TW", serif;
 }
 
 /* Site Title Font */
@@ -36,25 +38,67 @@
     font-display: swap;
 }
 
+/* Site Function Font */
 /* English or Latin Font */
 @font-face {
-    font-family: "Tirra";
-    src: url("../assets/fonts/Tirra-Regular.woff2") format("woff2");
-    font-weight: 400;
+    font-family: "Sofia Sans";
+    src: url("../assets/fonts/SofiaSans-VariableFont_wght.woff2") format("woff2"); /* Fixed extension */
     font-style: normal;
+    font-weight: 1 1000; /* variable wght axis range */
     font-display: swap;
 }
 @font-face {
-    font-family: "Tirra";
-    src: url("../assets/fonts/Tirra-Bold.woff2") format("woff2");
-    font-weight: 700;
-    font-style: normal;
+    font-family: "Sofia Sans";
+    src: url("../assets/fonts/SofiaSans-Italic-VariableFont_wght.woff2") format("woff2"); /* Fixed extension */
+    font-style: italic;
+    font-weight: 1 1000; /* variable wght axis range */
     font-display: swap;
 }
 
 /* Chinese Font */
 @font-face {
-    font-family: "GenRyuMin2TW";
+    font-family: "AkiSora Sans"; /* 秋空黑體|源暎黑體 */
+    src: url("../assets/fonts/AkiSoraSans-CL-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+    /* Optional: use unicode-range to be explicit */
+    unicode-range: U+3000-303F, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FE30-FE4F, U+FF00-FFEF;
+}
+
+/* Content Font */
+/* English or Latin Font */
+@font-face {
+    font-family: "Zilla Slab";
+    src: url("../assets/fonts/ZillaSlab-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Zilla Slab";
+    src: url("../assets/fonts/ZillaSlab-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Zilla Slab";
+    src: url("../assets/fonts/ZillaSlab-Italic.woff2") format("woff2");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Zilla Slab";
+    src: url("../assets/fonts/ZillaSlab-BoldItalic.woff2") format("woff2");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Chinese Font */
+@font-face {
+    font-family: "GenRyuMin2TW"; /* 源流明體 */
     src: url("../assets/fonts/GenRyuMin2TW-R.woff2") format("woff2");
     font-weight: 400;
     font-display: swap;
@@ -75,13 +119,39 @@
    src: url("../assets/fonts/IosevkaNerdFontMono-Regular.woff2") format("woff2");
     font-weight: 400;
     font-style: normal;
+    font-display: swap;
 }
-
 @font-face {
     font-family: "Iosevka";
     src: url("../assets/fonts/IosevkaNerdFontMono-Italic.woff2") format("woff2");
     font-weight: 400;
     font-style: italic;
+    font-display: swap;
+}
+
+/* Chinese Quote Font */
+@font-face {
+    font-family: "SatsukiGendaiMincho"; /* 皋月源代明朝 */
+    src: url("../assets/fonts/SatsukiGendaiMincho-M.woff2") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+    unicode-range: U+3000-303F, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FE30-FE4F, U+FF00-FFEF;
+}
+
+/* Latin Quote Font */
+@font-face {
+    font-family: "Enriqueta";
+    src: url("../assets/fonts/Enriqueta-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Enriqueta";
+    src: url("../assets/fonts/Enriqueta-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
 }
 
 :root {
@@ -95,54 +165,102 @@
     --color-line: 229, 231, 235; /* Light Border */
 }
 
-/* Base Styles */
-body {
-    font-family: var(--font-sans);
-    font-size: 18px;
-    background-color: var(--color-skin-fill);
-    color: rgb(var(--color-text-base));
-    margin: 0;
+/*
+  Base Styles — inside Tailwind's base layer so that utility classes on any
+  element (e.g. px-6, text-4xl on <main>/<h1>) always take precedence.
+*/
+@layer base {
+    body {
+        font-family: var(--font-serif);
+        font-size: 18px;
+        background-color: var(--color-skin-fill);
+        color: rgb(var(--color-text-base));
+        margin: 0;
+    }
+
+    code,
+    pre {
+        font-family: var(--font-mono);
+        font-size: 18px;
+    }
+
+    main {
+        margin: auto;
+        padding: 3em 1em;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0 0 0.5rem 0;
+        line-height: 1.2;
+    }
+    h1 {
+        font-size: 3.052em;
+    }
+    h2 {
+        font-size: 2.441em;
+    }
+    h3 {
+        font-size: 1.953em;
+    }
+    h4 {
+        font-size: 1.563em;
+    }
+    h5 {
+        font-size: 1.25em;
+    }
+    h6 {
+        font-size: 1em;
+    }
 }
 
-.site-title {
-    font-family: var(--font-display) !important;
+/*
+  Markdown-body overrides for @tailwindcss/typography (.prose).
+  Unlayered CSS wins over the plugin's layered rules, so no !important needed.
+  :not([class~="not-prose"] *) keeps these away from elements opted out of prose
+  (e.g. the post-title header in BlogPost.astro).
+*/
+.prose {
+    /* Body text darkened to match the site-wide body color (gray-800) */
+    --tw-prose-body: #1f2937;
 }
 
-code,
-pre {
-    font-family: var(--font-mono);
-    font-size: 18px;
+.prose blockquote {
+    font-style: normal;
+    font-family: var(--font-quote);
+    /* The plugin defaults blockquotes to font-weight 500; combined with the
+       Medium-cut quote font that made quotes darker than body text. */
+    font-weight: 400;
+    /* Slightly lighter than the body (#1f2937) */
+    color: #475569;
 }
 
-main {
-    margin: auto;
-    padding: 3em 1em;
+.prose blockquote p:first-of-type::before,
+.prose blockquote p:last-of-type::after {
+    content: none;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    margin: 0 0 0.5rem 0;
-    line-height: 1.2;
+.prose :is(h1, h2, h3, h4, h5, h6):not([class~="not-prose"] *) {
+    margin-top: 2rem;
+    margin-bottom: 1.75rem;
 }
-h1 {
-    font-size: 3.052em;
+
+.prose h1:not([class~="not-prose"] *) {
+    font-size: 2.5em;
 }
-h2 {
-    font-size: 2.441em;
+.prose h2:not([class~="not-prose"] *) {
+    font-size: 2em;
 }
-h3 {
-    font-size: 1.953em;
+.prose h3:not([class~="not-prose"] *) {
+    font-size: 1.6em;
 }
-h4 {
-    font-size: 1.563em;
-}
-h5 {
+.prose h4:not([class~="not-prose"] *) {
     font-size: 1.25em;
 }
-h6 {
-    font-size: 1em;
+.prose h5:not([class~="not-prose"] *) {
+    font-size: 1.125em;
 }

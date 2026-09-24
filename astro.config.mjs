@@ -1,5 +1,6 @@
 // @ts-check
 
+import { satteri } from "@astrojs/markdown-satteri";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import { defineConfig } from "astro/config";
@@ -15,6 +16,9 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   markdown: {
+    // Smart punctuation is on by default; keep dashes/ellipses but stop
+    // converting straight quotes ("...") into curly quotes (“...”).
+    processor: satteri({ features: { smartPunctuation: { quotes: false } } }),
     shikiConfig: {
       // Choose your preferred dark theme
       // Popular options: 'tokyo-night', 'dracula', 'vitesse-dark', 'github-dark', 'kanagawa-wave'
