@@ -67,9 +67,13 @@
 
 /* Content Font */
 /* English or Latin Font */
+/* Note: all four Zilla Slab files are rescaled (upm 1000→~830) so their
+   x-height matches Hanuman's (53.6% of em) — glyphs render ~20% larger at
+   the same font-size. Originals kept in fonts/full/. */
 @font-face {
     font-family: "Zilla Slab";
     src: url("../assets/fonts/ZillaSlab-Regular.woff2") format("woff2");
+    /* src: url("../assets/fonts/Hanuman-VariableFont_wght.woff2") format("woff2"); */
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -119,13 +123,6 @@
    src: url("../assets/fonts/IosevkaNerdFontMono-Regular.woff2") format("woff2");
     font-weight: 400;
     font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: "Iosevka";
-    src: url("../assets/fonts/IosevkaNerdFontMono-Italic.woff2") format("woff2");
-    font-weight: 400;
-    font-style: italic;
     font-display: swap;
 }
 
@@ -247,6 +244,10 @@
 .prose blockquote p:first-of-type::before,
 .prose blockquote p:last-of-type::after {
     content: none;
+}
+
+.prose :where(code, pre):not([class~="not-prose"] *) {
+    font-size: 1em;
 }
 
 .prose :is(h1, h2, h3, h4, h5, h6):not([class~="not-prose"] *) {
