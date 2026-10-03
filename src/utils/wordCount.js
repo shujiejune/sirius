@@ -4,8 +4,10 @@
 export function calculateWordCount(text) {
   if (!text) return 0;
 
-  // Clean markdown syntax
-  const cleanText = text.replace(/[#*`_>\[\]\(\)]/g, "");
+  // Strip HTML tags (<br/>, <span>, …) so they are not counted as words
+  const cleanText = text
+    .replace(/<[^>]*>/g, "")
+    .replace(/[#*`_>\[\]\(\)]/g, "");
 
   // Count alphanumeric English sequences
   const englishWords = (cleanText.match(/[a-zA-Z0-9]+/g) || []).length;
